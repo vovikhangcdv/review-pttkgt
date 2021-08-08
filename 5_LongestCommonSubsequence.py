@@ -21,7 +21,13 @@ def LongestCommonSubsequence():
                 D[i + 1][j + 1] = '<'
 
     print("Calculation:")
-    for i in range(N):
+    print("X/Y", end='')
+    for c in Y:
+        print("{:>5}".format(c), end='')
+    print()
+    print()
+    for i in range(1, N):
+        print(X[i - 1], "  ", end='')
         for j in range(M):
             print("{:>5}".format(str(A[i][j]) + D[i][j]), end='')
         print()
