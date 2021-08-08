@@ -12,7 +12,7 @@ def LongestCommonSubsequence():
         for j in range(M):
             if X[i] == Y[j]:
                 A[i + 1][j + 1] = A[i][j] + 1
-                D[i + 1][j + 1] = 'M'
+                D[i + 1][j + 1] = '*'
             elif A[i][j + 1] >= A[i + 1][j]:
                 A[i + 1][j + 1] = A[i][j + 1]
                 D[i + 1][j + 1] = '^'
@@ -21,15 +21,10 @@ def LongestCommonSubsequence():
                 D[i + 1][j + 1] = '<'
 
     print("Calculation:")
-    for a in A:
-        for x in a:
-            print("{:>3}".format(x), end='')
+    for i in range(N):
+        for j in range(M):
+            print("{:>5}".format(str(A[i][j]) + D[i][j]), end='')
         print()
-
-    print("Trace (M: Match, ^: Up, <: Left):")
-    for d in D:
-        for x in d:
-            print("{:>3}".format(x), end='')
         print()
 
     LCS = ""
