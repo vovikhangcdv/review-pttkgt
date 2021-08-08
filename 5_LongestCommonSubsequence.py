@@ -36,7 +36,7 @@ def LongestCommonSubsequence():
     LCS = ""
     x, y = N, M
     while x > 0 and y > 0:
-        if D[x][y] == 'M':
+        if D[x][y] == '*':
             LCS = X[x - 1] + LCS
             x -= 1
             y -= 1
