@@ -27,14 +27,14 @@ def MatrixChainMultiplication():
     for m in M[1:][::-1]:
         for x in m[1:]:
             x = str(x) if x < oo else ""
-            print("{:>10s}".format(x), end='')
+            print("{:>10}".format(x), end='')
         print()
 
     print("Matrix S:")
     for s in S[1:][::-1]:
         for x in s[1:]:
             x = str(x) if x < oo else ""
-            print("{:>10s}".format(x), end='')
+            print("{:>10}".format(x), end='')
         print()
 
     print("Best strategy: " + FindTheBest(S, 1, N))
