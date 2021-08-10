@@ -43,12 +43,15 @@ def Visit(node: Node, code=""):
 
 def HuffmanCode():
     N = int(input("How many char? "))
-    print("Enter {} line: <char> <frequency in percent>".format(N))
+    print("Enter {} line: <char> <frequency>".format(N))
     C = ['?' for _ in range(N)]
     P = [0 for _ in range(N)]
     for i in range(N):
         L = input("Data {}: ".format(i + 1)).strip().split(' ')
         C[i], P[i] = L[0], int(L[1])
+    T = sum(P)
+    for i in range(N):
+        P[i] = P[i] / T * 100
 
     H = Heap()
     for i in range(N):
@@ -59,21 +62,24 @@ def HuffmanCode():
         H.push(Node(None, X.prob + Y.prob, X, Y))
     H = Visit(H.pop())
 
-    print("\nChar    Code")
+    print("\nChar    Freq    Code")
     Avg = 0
     for i in range(N):
-        print("{:4}  {:>6}".format(C[i], H[C[i]]))
+        print("{:4}   {:>5.1f}    {:>4}".format(C[i], P[i], H[C[i]]))
         Avg += P[i] * len(H[C[i]])
     print("Avg:  {:>6}\n".format(Avg / 100))
+    return H
 
-    # Encode
-    S = "deadbeef"
+
+def Encode(H):
+    S = input("What defuq your want to encode? ")
     print("{} is encoded to {}".format(S, ''.join(H[c] for c in S)))
 
-    # Decode
-    S = "11111010111101110111011100"
-    print(S, "is decoded to ", end='')
+
+def Decode(H):
     R = {v: k for k, v in H.items()}
+    S = input("What defuq your want to decode? ")
+    print(S, "is decoded to ", end='')
     T = ""
     for c in S:
         T += c
@@ -84,4 +90,11 @@ def HuffmanCode():
 
 
 if __name__ == "__main__":
-    HuffmanCode()
+    H = HuffmanCode()
+    Choice = int(input("1: Encode, 2: Decode. Your choice? "))
+    if Choice == 1:
+        Encode(H)
+    elif Choice == 2:
+        Decode(H)
+    else:
+        print("Are you kidding me?")
