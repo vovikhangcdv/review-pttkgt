@@ -18,7 +18,7 @@ class Heap:
         self.A = []
 
     def __str__(self):
-        return '[' + ", ".join([str(x.prob) for x in self.A]) + ']'
+        return '[' + ", ".join([x.char + ':' + str(x.prob) for x in self.A]) + ']'
 
     def push(self, e):
         self.A.append(e)
@@ -36,7 +36,7 @@ class Heap:
 
 
 def Visit(node: Node, code=""):
-    if node.char:
+    if not (node.left or node.right):
         return {node.char: code}
     return Visit(node.left, code + '0') | Visit(node.right, code + '1')
 
@@ -56,10 +56,12 @@ def HuffmanCode():
     H = Heap()
     for i in range(N):
         H.push(Node(C[i], P[i]))
+    print("\nInitial tree:", H)
     for _ in range(N - 1):
         X = H.pop()
         Y = H.pop()
-        H.push(Node(None, X.prob + Y.prob, X, Y))
+        H.push(Node('(' + X.char + ", " + Y.char + ')', X.prob + Y.prob, X, Y))
+        print("After step {}:".format(_ + 1), H)
     H = Visit(H.pop())
 
     print("\nChar    Freq    Code")
