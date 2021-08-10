@@ -2,7 +2,7 @@
 import sys
 
 if sys.version_info < (3, 9):
-    sys.exit("Python %s.%s or later is required.\n", format(3, 9))
+    sys.exit("Python {}.{} or later is required.\n".format(3, 9))
 
 
 class Node:
