@@ -60,4 +60,4 @@ def BinPacking():
 
 
 if __name__ == "__main__":
-    BinPacking(False, False)
+    BinPacking()
