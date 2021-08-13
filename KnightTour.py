@@ -4,7 +4,7 @@ HX = [-1, -2, -2, -1, 1, 2, 2, 1]
 HY = [2, 1, -1, -2, -2, -1, 1, 2]
 
 
-def KnightTour():
+def KnightTour(UseBound=True):
     N = int(input("Size of board: "))
     x0, y0 = [int(x) for x in input("Starting position: ").strip().split(' ')]
     x0, y0 = x0 - 1, y0 - 1
@@ -35,7 +35,8 @@ def KnightTour():
             if nx in range(N) and ny in range(N) and A[nx][ny] == 0:
                 L.append([Candidate(nx, ny), nx, ny])
 
-        L.sort()
+        if UseBound:
+            L.sort()
         for c, nx, ny in L:
             Try(nx, ny, k + 1)
         if not FOUNDED:
@@ -62,4 +63,4 @@ def KnightTour():
 
 
 if __name__ == "__main__":
-    KnightTour()
+    KnightTour(False)
