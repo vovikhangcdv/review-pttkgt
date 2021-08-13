@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Chuong 5
 from AcitivitySelection import AcitivitySelection
 from FloydWarshall import Warshall, Floyd
@@ -43,9 +45,9 @@ menu_options = {
 
 def print_menu():
     print("=" * 10)
-    print('    0 -- Exit')
-    for key in menu_options.keys():
-        print("    " + str(key), '--', menu_options[key])
+    print("  0 -- Exit")
+    for key, option in menu_options.items():
+        print(" {:>2} -- {}".format(str(key), option))
 
 
 if __name__ == '__main__':
