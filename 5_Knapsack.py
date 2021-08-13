@@ -89,5 +89,5 @@ def KnapsackUnlimited():
 
 
 if __name__ == "__main__":
-    KnapsackUnique()
-    # KnapsackUnlimited()
+    # KnapsackUnique()
+    KnapsackUnlimited()

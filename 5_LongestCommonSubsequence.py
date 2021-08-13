@@ -2,8 +2,8 @@
 
 
 def LongestCommonSubsequence():
-    X = input("X: ")
-    Y = input("Y: ")
+    X = ''.join(input("X: ").strip().split(' '))
+    Y = ''.join(input("Y: ").strip().split(' '))
 
     N, M = len(X), len(Y)
     A = [[0 for _ in range(M + 1)] for _ in range(N + 1)]

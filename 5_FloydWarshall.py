@@ -28,6 +28,7 @@ def ShortestPath(B, start, end):
 
 def Warshall():
     N = int(input("N = "))
+    print("Input adjacency matrix:")
     A = [[0 for _ in range(N + 1)]]
     for _ in range(N):
         line = input().strip().replace("  ", " ").split(" ")
@@ -46,6 +47,7 @@ def Warshall():
 
 def Floyd():
     N = int(input("N = "))
+    print("Input adjacency matrix:")
     A = [[0 for _ in range(N + 1)]]
     B = [[0 for _ in range(N + 1)] for _ in range(N + 1)]
     for _ in range(N):
@@ -62,7 +64,9 @@ def Floyd():
                         A[i][j] = t
                         B[i][j] = k
         print("Step {}:".format(k))
+        print("- A" + str(k) + ":")
         PrintMatrix(A)
+        print('- B' + str(k) + ":")
         PrintMatrix(B)
         print('-' * 10)
 

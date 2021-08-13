@@ -28,7 +28,7 @@ def AcitivitySelection():
     for idx, s, f in A:
         print("  {:2d}   ".format(idx), end='')
         c = ' ###' if idx in Choice else ' ---'
-        print("    " * (s - 1) + c * (f - s + 1))
+        print("    " * (s - 1) + c * (f - s))
 
     print("\nMy choice:", Choice)
 
