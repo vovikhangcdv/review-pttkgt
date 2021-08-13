@@ -5,7 +5,7 @@ def JobAssignment():
     N = int(input("How many job? "))
     A = []
     for _ in range(N):
-        L = input("Person {} cost for each job".format(_ + 1)).strip().split(' ')
+        L = input("Person {} cost for each job: ".format(_ + 1)).strip().split(' ')
         A.append([int(x) for x in L])
     print(A)
 

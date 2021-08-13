@@ -41,7 +41,7 @@ def Visit(node: Node, code=""):
     return Visit(node.left, code + '0') | Visit(node.right, code + '1')
 
 
-def HuffmanCode():
+def HuffmanCodeSolve():
     N = int(input("How many char? "))
     print("Enter {} line: <char> <frequency>".format(N))
     C = ['?' for _ in range(N)]
@@ -90,9 +90,8 @@ def Decode(H):
             T = ""
     print()
 
-
-if __name__ == "__main__":
-    H = HuffmanCode()
+def HuffmanCode():
+    H = HuffmanCodeSolve()
     Choice = int(input("1: Encode, 2: Decode. Your choice? "))
     if Choice == 1:
         Encode(H)
@@ -100,3 +99,5 @@ if __name__ == "__main__":
         Decode(H)
     else:
         print("Are you kidding me?")
+if __name__ == "__main__":
+    HuffmanCode
