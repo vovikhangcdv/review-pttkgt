@@ -35,6 +35,7 @@ def BinPackingSolve(SIZE, N, L, BestFit=False, Decreasing=False):
     for i in range(len(B)):
         print("Bin {}: used {}/{}, object = {}".format(i + 1, B[i], SIZE, O[i]))
 
+
 def BinPacking():
     """Change two parameters above to get specific algorithm you want"""
     SIZE = int(input("Max size of a bin: "))
@@ -56,6 +57,7 @@ def BinPacking():
     print("[+] Best Fit Decreasing (BFD)")
     BinPackingSolve(SIZE, N, L, True, True)
     print()
+
 
 if __name__ == "__main__":
     BinPacking(False, False)

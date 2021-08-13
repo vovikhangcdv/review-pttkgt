@@ -90,6 +90,7 @@ def Decode(H):
             T = ""
     print()
 
+
 def HuffmanCode():
     H = HuffmanCodeSolve()
     Choice = int(input("1: Encode, 2: Decode. Your choice? "))
@@ -99,5 +100,7 @@ def HuffmanCode():
         Decode(H)
     else:
         print("Are you kidding me?")
+
+
 if __name__ == "__main__":
     HuffmanCode

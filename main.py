@@ -6,18 +6,18 @@ from HuffmanCode import HuffmanCode
 from Knapsack import KnapsackUnique, KnapsackUnlimited
 from LongestCommonSubsequence import LongestCommonSubsequence
 from MatrixChainMultiplication import MatrixChainMultiplication
+
 # Chuong 6
 from GeneratePermutation import GeneratePermutation
 from JobAssignment import JobAssignment
 from KnightTour import KnightTour
 from nQueensPuzzle import nQueensPuzzle
 from SubsetSum import SubsetSum
+
 # Chuong 8
 from nQueensPuzzle import nQueensPuzzle
 from BinPacking import BinPacking
 from Schedule import Schedule
-
-
 
 
 menu_options = {
@@ -40,23 +40,25 @@ menu_options = {
     17: 'Schedule',
 }
 
+
 def print_menu():
-    print("="*10)
+    print("=" * 10)
     print('    0 -- Exit')
     for key in menu_options.keys():
-        print ("    " + str(key), '--', menu_options[key] )
+        print("    " + str(key), '--', menu_options[key])
 
-if __name__=='__main__':
-    while(True):
+
+if __name__ == '__main__':
+    while True:
         print_menu()
         option = ''
         try:
             option = int(input('[+] Enter your choice: '))
         except:
             print('Wrong input. Please enter a number ...')
-        #Check what choice was entered and act accordingly
+        # Check what choice was entered and act accordingly
         if option in menu_options:
-            print("_"*10)
+            print("_" * 10)
             print(menu_options[option])
             globals()[menu_options[option]]()
             input("[.] Press enter key to continue!")

@@ -1,6 +1,9 @@
 """The n queens puzzle."""
+
+
 class NQueens:
     """Generate all valid solutions for the n queens puzzle"""
+
     def __init__(self, size):
         # Store the puzzle (problem) size and the number of valid solutions
         self.size = size
@@ -32,16 +35,13 @@ class NQueens:
                     positions[target_row] = column
                     self.put_queen(positions, target_row + 1)
 
-
     def check_place(self, positions, ocuppied_rows, column):
         """
         Check if a given position is under attack from any of
         the previously placed queens (check column and diagonal positions)
         """
         for i in range(ocuppied_rows):
-            if positions[i] == column or \
-                positions[i] - i == column - ocuppied_rows or \
-                positions[i] + i == column + ocuppied_rows:
+            if positions[i] == column or positions[i] - i == column - ocuppied_rows or positions[i] + i == column + ocuppied_rows:
 
                 return False
         return True
@@ -68,10 +68,12 @@ class NQueens:
             line += str(positions[i]) + " "
         print(line)
 
+
 def nQueensPuzzle():
     """Initialize and solve the n queens puzzle"""
     n = input("Number of queens?: ")
     NQueens(int(n))
+
 
 if __name__ == "__main__":
     # execute only if run as a script
