@@ -9,6 +9,8 @@ class NQueens:
         # Store the puzzle (problem) size and the number of valid solutions
         self.size = size
         self.solutions = 0
+        self.step = 0
+        self.quit = False
         self.solve()
 
     def solve(self):
@@ -24,17 +26,28 @@ class NQueens:
         on the next row until all N queens are placed on the NxN board.
         """
         # Base (stop) case - all N rows are occupied
+        if self.quit:
+            return
         if target_row == self.size:
-            self.show_full_board(positions)
-            # self.show_short_board(positions)
             self.solutions += 1
+            print("This is also the solution {}!".format(self.solutions))
+            Respond = input("Continue (Y/N)? ").strip().upper()
+            if Respond != 'Y':
+                self.quit = True
+                return
         else:
             # For all N columns positions try to place a queen
             for column in range(self.size):
                 # Reject all invalid positions
                 if self.check_place(positions, target_row, column):
+                    if self.quit:
+                        return
                     positions[target_row] = column
+                    self.step += 1
+                    print("Step {}:".format(self.step))
+                    self.show_full_board(positions)
                     self.put_queen(positions, target_row + 1)
+                    positions[target_row] = -1
 
     def check_place(self, positions, ocuppied_rows, column):
         """
@@ -57,17 +70,7 @@ class NQueens:
                 else:
                     line += ". "
             print(line)
-        print("\n")
-
-    def show_short_board(self, positions):
-        """
-        Show the queens positions on the board in compressed form,
-        each number represent the occupied column position in the corresponding row.
-        """
-        line = ""
-        for i in range(self.size):
-            line += str(positions[i]) + " "
-        print(line)
+        print()
 
 
 def nQueensPuzzle():
