@@ -8,6 +8,7 @@ from HuffmanCode import HuffmanCode
 from Knapsack import KnapsackUnique, KnapsackUnlimited
 from LongestCommonSubsequence import LongestCommonSubsequence
 from MatrixChainMultiplication import MatrixChainMultiplication
+from GraphColoring import GraphColoring
 
 # Chuong 6
 from GeneratePermutation import GeneratePermutation
@@ -20,7 +21,8 @@ from SubsetSum import SubsetSum
 from nQueensPuzzle import nQueensPuzzle
 from BinPacking import BinPacking
 from Schedule import Schedule
-
+from TravelingSalesman import TravelingSalesman
+from SetCover import SetCover
 
 menu_options = {
     1: 'AcitivitySelection',
@@ -40,6 +42,9 @@ menu_options = {
     15: 'nQueensPuzzle',
     16: 'BinPacking',
     17: 'Schedule',
+    18: 'GraphColoring',
+    19: 'TravelingSalesman',
+    20: 'SetCover'
 }
 
 
