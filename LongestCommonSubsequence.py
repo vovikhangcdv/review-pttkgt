@@ -26,7 +26,7 @@ def LongestCommonSubsequence():
         print("{:>5}".format(c), end='')
     print()
     print()
-    for i in range(1, N):
+    for i in range(1, N + 1):
         print(X[i - 1], "  ", end='')
         for j in range(M):
             print("{:>5}".format(str(A[i][j]) + D[i][j]), end='')
