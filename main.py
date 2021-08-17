@@ -44,7 +44,7 @@ menu_options = {
     17: 'Schedule',
     18: 'GraphColoring',
     19: 'TravelingSalesman',
-    20: 'SetCover'
+    20: 'SetCover',
 }
 
 

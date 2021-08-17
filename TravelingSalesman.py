@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 
-from time import sleep
 from functools import reduce
 
 PATH = ""
 
 
 def TravelingSalesman():
+    global PATH
+    print(PATH)
     N = int(input("How many vertex? "))
     print("Input each edge with weight in form <u> <v> <w>. Input empty line to break.")
     M = 0
@@ -20,7 +21,7 @@ def TravelingSalesman():
         u, v, w = L[0], L[1], int(L[2])
         A.append([w, u, v])
 
-    print("Read {} edge(s)!".format(M))
+    print("Read {} edge(s)!".format(M - 1))
     A.sort()
     Chosen = set(A[0][1])
     Chosen.add(A[0][2])
@@ -40,6 +41,8 @@ def TravelingSalesman():
 
     print("Minimun spaning tree: {}.".format(", ".join([u + " -> " + v for u, v in MST])))
     MST = BuildMST(MST)
+    for v in MST.keys():
+        MST[v].sort()
     TreeWalk = DFS(MST, START)
     print("Tree walk: {}".format(" -> ".join(list(TreeWalk))))
     Hamiltonian = list(reduce(lambda x, y: x + y if y not in x else x, TreeWalk, "")) + [START]
@@ -58,13 +61,13 @@ def BuildMST(A):
     AdjList = {}
     for u, v in A:
         if u in AdjList:
-            AdjList[u].add(v)
+            AdjList[u].append(v)
         else:
-            AdjList[u] = {v}
+            AdjList[u] = [v]
         if v in AdjList:
-            AdjList[v].add(u)
+            AdjList[v].append(u)
         else:
-            AdjList[v] = {u}
+            AdjList[v] = [u]
     return AdjList
 
 
